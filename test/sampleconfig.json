@@ -1,0 +1,9 @@
+{
+    "SecretKey": "password",
+    "Server": "localhost",
+    "Zone": "example.com",
+    "Domain": "example.com",
+    "NsupdateCmd": "/usr/bin/nsupdate",
+    "RecordTTL": 3600
+}
+
