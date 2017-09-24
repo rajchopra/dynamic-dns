@@ -46,7 +46,7 @@ func RequestHandlerCommon(w http.ResponseWriter, r *http.Request, operation stri
 	address = vals["ip"][0]
 
 	if SecretKey != dnsConf.SecretKey {
-		log.Println(fmt.Sprintf("Invalid shared secret: %s Original[%s]", SecretKey, dnsConf.SecretKey))
+		log.Println(fmt.Sprintf("Invalid shared secret: %s", SecretKey))
 		response.Success = false
 		response.Message = "Invalid Credentials"
 		json.NewEncoder(w).Encode(response)
@@ -77,7 +77,7 @@ func RequestHandlerCommon(w http.ResponseWriter, r *http.Request, operation stri
 
 		if result == "" {
 			response.Success = true
-			response.Message = fmt.Sprintf("Operation [%s] on %s record for %s to IP address %s executed successfully.", addrType, domain, address)
+			response.Message = fmt.Sprintf("Operation [%s] for Domain[%s] IP[%s] executed successfully.", operation, domain, address)
 		} else {
 			response.Success = false
 			response.Message = result
